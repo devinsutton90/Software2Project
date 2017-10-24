@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.cell.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="583.0" prefWidth="621.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="software2project.View_Controller.AllCustomersController">
+   <children>
+      <BorderPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <center>
+            <AnchorPane prefHeight="553.0" prefWidth="608.0" BorderPane.alignment="CENTER">
+               <children>
+                  <TableView fx:id="CustomersTableview" prefHeight="453.0" prefWidth="604.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="50.0">
+                    <columns>
+                        <TableColumn fx:id="CustomerIDColumn" prefWidth="75.0" text="Customer ID">
+                            <cellFactory>      
+                            </cellFactory>
+                            <cellValueFactory>
+                                <PropertyValueFactory property="customerID"></PropertyValueFactory>
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn fx:id="CustomerNameColumn" prefWidth="75.0" text="Customer Name">
+                            <cellFactory>      
+                            </cellFactory>
+                            <cellValueFactory>
+                                <PropertyValueFactory property="customerName"></PropertyValueFactory>
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn fx:id="AddressColumn" prefWidth="75.0" text="Address">
+                            <cellFactory>      
+                            </cellFactory>
+                            <cellValueFactory>
+                                <PropertyValueFactory property="address"></PropertyValueFactory>
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn fx:id="Address2Column" prefWidth="75.0" text="Address 2">
+                            <cellFactory>      
+                            </cellFactory>
+                            <cellValueFactory>
+                                <PropertyValueFactory property="address2"></PropertyValueFactory>
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn fx:id="CityColumn" prefWidth="75.0" text="City">
+                            <cellFactory>      
+                            </cellFactory>
+                            <cellValueFactory>
+                                <PropertyValueFactory property="city"></PropertyValueFactory>
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn fx:id="PostalCodeColumn" prefWidth="75.0" text="Postal Code">
+                            <cellFactory>      
+                            </cellFactory>
+                            <cellValueFactory>
+                                <PropertyValueFactory property="postalCode"></PropertyValueFactory>
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn fx:id="CountryColumn" prefWidth="75.0" text="Country">
+                            <cellFactory>      
+                            </cellFactory>
+                            <cellValueFactory>
+                                <PropertyValueFactory property="country"></PropertyValueFactory>
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn fx:id="PhoneColumn" prefWidth="75.0" text="Phone Number">
+                            <cellFactory>      
+                            </cellFactory>
+                            <cellValueFactory>
+                                <PropertyValueFactory property="customerID"></PropertyValueFactory>
+                            </cellValueFactory>
+                        </TableColumn>
+                    </columns>
+                  </TableView>
+                  <Label alignment="CENTER" layoutX="291.0" layoutY="49.0" text="All Customers" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="10.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font></Label>
+                  <Button fx:id="DeleteCustomerButton" layoutX="558.0" layoutY="514.0" mnemonicParsing="false" onAction="#DeleteCustomerAction" text="Delete" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="14.0" />
+                  <Button fx:id="ModifyCustomerButton" layoutX="495.0" layoutY="514.0" mnemonicParsing="false" onAction="#ModifyCustomerAction" text="Modify" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="75.0" />
+                  <Button fx:id="AddCustomerButton" layoutX="434.0" layoutY="514.0" mnemonicParsing="false" onAction="#AddCustomerAction" text="Add" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="138.0" />
+               </children>
+            </AnchorPane>
+         </center>
+         <top>
+            <MenuBar maxHeight="40.0" minHeight="30.0" prefHeight="30.0" prefWidth="791.0" BorderPane.alignment="CENTER">
+              <menus>
+                <Menu mnemonicParsing="false" text="File">
+                  <items>
+                    <MenuItem fx:id="CloseMenuItem" mnemonicParsing="false" onAction="#CloseApplication" text="Close" />
+                  </items>
+                </Menu>
+                  <Menu mnemonicParsing="false" text="View">
+                     <items>
+                        <MenuItem fx:id="MonthViewMenuItem" mnemonicParsing="false" onAction="#MonthViewMenuItemSelect" text="Month" />
+                        <MenuItem fx:id="WeekViewMenuItem" mnemonicParsing="false" onAction="#WeekViewMenuItemSelect" text="Week" />
+                     </items>
+                  </Menu>
+                <Menu mnemonicParsing="false" text="Customer">
+                  <items>
+                        <MenuItem fx:id="ViewAllCustomerMenuItem" mnemonicParsing="false" onAction="#ViewAllCustomerMenuItemSelect" text="View All Customers" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Appointment">
+                  <items>
+                    <MenuItem fx:id="ViewAllAppointmentsMenuItem" mnemonicParsing="false" onAction="#ViewAllAppointmentsMenuItemAction" text="View All Appointments" />
+                  </items>
+                </Menu>
+                  <Menu mnemonicParsing="false" text="Reports">
+                     <items>
+                        <MenuItem fx:id="AppointmentTypeReportMenuItem" mnemonicParsing="false" onAction="#AppointmentTypeReportMenuItemSelect" text="Appointment Type By Month" />
+                        <MenuItem fx:id="ScheduleByConsultantReportMenuItem" mnemonicParsing="false" onAction="#ScheduleByConsultantReportMenuItemSelect" text="Schedule By Consultant" />
+                        <MenuItem fx:id="AllUpcomingAppointmentsMenuItem" mnemonicParsing="false" onAction="#AllUpcomingAppointmentsMenuItemSelect" text="All Upcoming Appointments" />
+                        <MenuItem fx:id="AllHistoricAppointmentsMenuItem" mnemonicParsing="false" onAction="#AllHistoricAppointmentsMenuItemSelect" text="All Historical Appointments" />
+                     </items>
+                  </Menu>
+              </menus>
+            </MenuBar>
+         </top>
+      </BorderPane>
+   </children>
+</AnchorPane>

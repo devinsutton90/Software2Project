@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="583.0" prefWidth="791.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="software2project.View_Controller.AppointmentsByWeekController">
+  <children>
+    <BorderPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <center>
+        <AnchorPane BorderPane.alignment="CENTER">
+          <children>
+            <TableView fx:id="WeekAppointmentTableView" AnchorPane.bottomAnchor="75.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="50.0">
+              <columns>
+                <TableColumn fx:id="CustomerNameColumn" prefWidth="75.0" text="Customer Name">
+                  <cellValueFactory>
+                    <PropertyValueFactory property="customerName" />
+                  </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="PhoneColumn" prefWidth="75.0" text="Phone Number">
+                  <cellValueFactory>
+                    <PropertyValueFactory property="phone" />
+                  </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="AppointmentIDColumn" prefWidth="75.0" text="Appointment ID">
+                  <cellValueFactory>
+                    <PropertyValueFactory property="appointmentID" />
+                  </cellValueFactory>
+                </TableColumn>
+                        <TableColumn fx:id="DateColumn" prefWidth="75.0" text="Date">
+                            <cellFactory>      
+                            </cellFactory>
+                            <cellValueFactory>
+                                <PropertyValueFactory property="date" />
+                            </cellValueFactory>
+                            </TableColumn>
+                <TableColumn fx:id="StartTimeColumn" prefWidth="75.0" text="Start Time">
+                  <cellValueFactory>
+                    <PropertyValueFactory property="startTime" />
+                  </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="EndTimeColumn" prefWidth="75.0" text="End Time">
+                  <cellValueFactory>
+                    <PropertyValueFactory property="endTime" />
+                  </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="LocationColumn" prefWidth="75.0" text="Location">
+                  <cellValueFactory>
+                    <PropertyValueFactory property="location" />
+                  </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="DescriptionColumn" prefWidth="75.0" text="Description">
+                  <cellValueFactory>
+                    <PropertyValueFactory property="description" />
+                  </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="URLColumn" prefWidth="75.0" text="URL">
+                  <cellValueFactory>
+                    <PropertyValueFactory property="URL" />
+                  </cellValueFactory>
+                </TableColumn>
+              </columns>
+            </TableView>
+            <Label alignment="CENTER" text="Appointment List by Week" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="10.0">
+              <font>
+                <Font size="18.0" />
+              </font>
+            </Label>
+            <HBox alignment="CENTER" prefHeight="60.0" spacing="25.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+              <children>
+                <Button fx:id="AppointmentAddBtn" minWidth="85.0" mnemonicParsing="false" onAction="#addAppointment" text="Add" />
+                <Button fx:id="WeekModifyBtn" minWidth="85.0" mnemonicParsing="false" onAction="#modifySelectedAppointment" text="Modify" />
+                <Button fx:id="WeekDeleteBtn" minWidth="85.0" mnemonicParsing="false" onAction="#deleteSelectedAppointment" text="Delete" />
+              </children>
+            </HBox>
+          </children>
+        </AnchorPane>
+      </center>
+      <top>
+        <MenuBar maxHeight="40.0" minHeight="40.0" BorderPane.alignment="CENTER">
+          <menus>
+            <Menu mnemonicParsing="false" text="File">
+              <items>
+                <MenuItem fx:id="CloseMenuItem" mnemonicParsing="false" onAction="#CloseApplication" text="Close" />
+              </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="View">
+              <items>
+                <MenuItem fx:id="MonthViewMenuItem" mnemonicParsing="false" onAction="#MonthViewMenuItemSelect" text="Month" />
+                <MenuItem fx:id="WeekViewMenuItem" mnemonicParsing="false" onAction="#WeekViewMenuItemSelect" text="Week" />
+              </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Customer">
+              <items>
+                <MenuItem fx:id="ViewAllCustomerMenuItem" mnemonicParsing="false" onAction="#ViewAllCustomerMenuItemSelect" text="View All Customers" />
+              </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Appointment">
+              <items>
+                <MenuItem fx:id="ViewAllAppointmentsMenuItem" mnemonicParsing="false" onAction="#ViewAllAppointmentsAction" text="View All Appointments" />
+              </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Reports">
+              <items>
+                <MenuItem fx:id="AppointmentTypeReportMenuItem" mnemonicParsing="false" onAction="#AppointmentTypeReportMenuItemSelect" text="Appointment Type By Month" />
+                <MenuItem fx:id="ScheduleByConsultantReportMenuItem" mnemonicParsing="false" onAction="#ScheduleByConsultantReportMenuItemSelect" text="Schedule By Consultant" />
+                <MenuItem fx:id="AllUpcomingAppointmentsMenuItem" mnemonicParsing="false" onAction="#AllUpcomingAppointmentsMenuItemSelect" text="All Upcoming Appointments" />
+                <MenuItem fx:id="AllHistoricAppointmentsMenuItem" mnemonicParsing="false" onAction="#AllHistoricAppointmentsMenuItemSelect" text="All Historical Appointments" />
+              </items>
+            </Menu>
+          </menus>
+        </MenuBar>
+      </top>
+    </BorderPane>
+  </children>
+</AnchorPane>
